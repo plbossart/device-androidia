@@ -1,0 +1,47 @@
+supDomain: StreamRoute
+	supDomain: Media
+		domain: Playback
+			conf: Applicable
+				ANY
+					SelectedOutputDevices Includes Headset
+					SelectedOutputDevices Includes Headphones
+					SelectedOutputDevices Includes Line
+				OutputFlags Includes Primary
+			
+				/Route/nuc/playback/media/stream_playback/status/applicable = 1
+
+			conf: NotApplicable
+				/Route/nuc/playback/media/stream_playback/status/applicable = 0
+	
+		domain: Capture
+			conf: Applicable
+				SelectedInputDevices Includes Headset
+
+				/Route/nuc/capture/media/stream_capture/status/applicable = 1
+
+			conf: NotApplicable
+				/Route/nuc/capture/media/stream_capture/status/applicable = 0
+
+	supDomain: Hdmi
+		domain: Playback
+			conf: Applicable
+				ANY
+					SelectedOutputDevices Includes AuxDigital
+					SelectedOutputDevices Includes Ihf
+				OutputFlags Includes Primary
+			
+				/Route/nuc/playback/hdmi/stream_playback/status/applicable = 1
+
+			conf: NotApplicable
+				/Route/nuc/playback/hdmi/stream_playback/status/applicable = 0
+
+	supDomain: HdmiMulti
+		domain: Playback
+			conf: Applicable
+				SelectedOutputDevices Includes AuxDigital
+				OutputFlags Includes Direct
+			
+				/Route/nuc/playback/hdmi_multi/stream_playback/status/applicable = 1
+
+			conf: NotApplicable
+				/Route/nuc/playback/hdmi_multi/stream_playback/status/applicable = 0

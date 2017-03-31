@@ -1,0 +1,3 @@
+InclusiveCriterion  SelectedInputDevices   :  Headset
+InclusiveCriterion  SelectedOutputDevices  :  Ihf         Headphones  Headset       Line     AuxDigital 
+InclusiveCriterion  OutputFlags            :  Primary     Direct

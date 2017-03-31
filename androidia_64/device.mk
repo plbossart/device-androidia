@@ -332,14 +332,11 @@ PRODUCT_PACKAGES_DEBUG += \
 # Extended Audio HALs
 PRODUCT_PACKAGES += \
     audio.r_submix.default \
-    audio.hdmi.android_ia \
     audio.primary.android_ia \
     audio.usb.default \
-    audio_policy.default.so
+    audio_hal_configurable \
+    audio_hal_nuc
 
-PRODUCT_COPY_FILES += \
-    device/intel/android_ia/common/audio/mixer_paths.xml:system/etc/mixer_paths.xml \
-    device/intel/android_ia/common/audio/audio_policy.conf:system/etc/audio_policy.conf
 ##############################################################
 # Source: device/intel/mixins/groups/wlan/iwlwifi/product.mk
 ##############################################################

@@ -148,6 +148,7 @@ BOARD_FLASHFILES += $(PRODUCT_OUT)/vendor.img
 BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_TINY_ALSA_AUDIO := true
 BOARD_USES_GENERIC_AUDIO ?= false
+PFW_LEGACY_ALSA := false
 ##############################################################
 # Source: device/intel/mixins/groups/wlan/iwlwifi/BoardConfig.mk
 ##############################################################
