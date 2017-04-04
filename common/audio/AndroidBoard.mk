@@ -60,7 +60,7 @@ LOCAL_ADDITIONAL_DEPENDENCIES := \
     RealtekAlc283Subsystem.xml \
     HdmiSubsystem.xml
 
-LOCAL_MODUL_CLASS := ETC
+LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_RELATIVE_PATH := parameter-framework/Settings/Audio
 LOCAL_REQUIRED_MODULES := \
     libtinyalsa-subsystem
