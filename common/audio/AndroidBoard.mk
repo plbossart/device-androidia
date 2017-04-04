@@ -57,7 +57,7 @@ LOCAL_MODULES_TAGS := optional
 LOCAL_ADDITIONAL_DEPENDENCIES := \
     AudioParameterFramework.xml \
     AudioClass.xml \
-    RealtekAlc283Subsystem.xml \
+    ConexantCX20724Subsystem.xml \
     HdmiSubsystem.xml
 
 LOCAL_MODULE_CLASS := ETC
@@ -67,10 +67,10 @@ LOCAL_REQUIRED_MODULES := \
 
 PFW_TOPLEVEL_FILE := $(TARGET_OUT_ETC)/parameter-framework/AudioParameterFramework.xml
 PFW_CRITERIA_FILE := $(LOCAL_PATH)/parameter-framework/AudioCriteria.txt
-PFW_TUNING_FILE   := $(LOCAL_PATH)/$(LOCAL_MODULE_RELATIVE_PATH)/AudioConfigurableDomains-Tuning.xml
+#PFW_TUNING_FILE   := $(LOCAL_PATH)/$(LOCAL_MODULE_RELATIVE_PATH)/AudioConfigurableDomains-Tuning.xml
 
 PFW_EDD_FILES := \
-    $(LOCAL_PATH)/$(LOCAL_MODULE_RELATIVE_PATH)/routing_alc283.pfw \
+    $(LOCAL_PATH)/$(LOCAL_MODULE_RELATIVE_PATH)/routing_cx20724.pfw \
     $(LOCAL_PATH)/$(LOCAL_MODULE_RELATIVE_PATH)/routing_hdmi.pfw
 
 include $(BUILD_PFW_SETTINGS)
@@ -101,7 +101,7 @@ LOCAL_SRC_FILES := $(LOCAL_MODULE_RELATIVE_PATH)/$(LOCAL_MODULE)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := RealtekAlc283Subsystem.xml
+LOCAL_MODULE := ConexantCX20724Subsystem.xml
 LOCAL_MODULE_OWNER := intel
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC

@@ -1,4 +1,4 @@
-supDomain: Calibration
+domainGroup: Calibration
 	domain: HwPlatform
 		conf: Default
 			component: /Route/nuc/playback/media/stream_playback
@@ -35,12 +35,12 @@ supDomain: Calibration
 					effects_supported =
 					component: supported_output_devices/mask
 						earpiece = 0
-						speaker = 0
+						speaker = 1
 						wired_headset = 1
 						wired_headphone = 1
-						bluetooth_sco = 1
-						bluetooth_sco_headset = 1
-						bluetooth_sco_carkit = 1
+						bluetooth_sco = 0
+						bluetooth_sco_headset = 0
+						bluetooth_sco_carkit = 0
 						bluetooth_a2dp = 0
 						bluetooth_a2dp_headphones = 0
 						bluetooth_a2dp_speaker = 0
@@ -147,7 +147,7 @@ supDomain: Calibration
 					effects_supported =
 					component: supported_output_devices/mask
 						earpiece = 0
-						speaker = 1
+						speaker = 0
 						wired_headset = 0
 						wired_headphone = 0
 						bluetooth_sco = 0
