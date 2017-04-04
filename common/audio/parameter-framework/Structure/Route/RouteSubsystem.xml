@@ -2,7 +2,7 @@
 <Subsystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xi="http://www.w3.org/2001/XInclude"
     xsi:noNamespaceSchemaLocation="../../Schemas/Subsystem.xsd"
-    Name="nuc" Type="ROUTEMGR"
+    Name="skl" Type="ROUTEMGR"
     Mapping="Card:PCH">
 
    <ComponentLibrary>
@@ -10,8 +10,6 @@
    
 	<ComponentType Name="PlaybackRoutes">
 		<Component Name="media" Type="StreamRoutePlayback" Mapping="Amend1:Media,Device:0,Ports:"/>
-		<Component Name="hdmi" Type="StreamRoutePlayback" Mapping="Amend1:Hdmi,Device:3,Ports:"/>
-		<Component Name="hdmi_multi" Type="StreamRoutePlayback" Mapping="Amend1:HdmiMulti,Device:3,Ports:"/>
 	</ComponentType>
 	<ComponentType Name="CaptureRoutes">
 		<Component Name="media" Type="StreamRouteCapture" Mapping="Amend1:Media,Device:0,Ports:"/>

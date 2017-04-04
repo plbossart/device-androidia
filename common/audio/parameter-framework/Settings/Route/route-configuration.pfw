@@ -1,7 +1,7 @@
-supDomain: Calibration
+domainGroup: Calibration
 	domain: HwPlatform
 		conf: Default
-			component: /Route/nuc/playback/media/stream_playback
+			component: /Route/skl/playback/media/stream_playback
 				component: config
 					require_preenable = 0
 					require_postdisable = 0
@@ -35,12 +35,12 @@ supDomain: Calibration
 					effects_supported =
 					component: supported_output_devices/mask
 						earpiece = 0
-						speaker = 0
+						speaker = 1
 						wired_headset = 1
 						wired_headphone = 1
 						bluetooth_sco = 1
-						bluetooth_sco_headset = 1
-						bluetooth_sco_carkit = 1
+						bluetooth_sco_headset = 0
+						bluetooth_sco_carkit = 0
 						bluetooth_a2dp = 0
 						bluetooth_a2dp_headphones = 0
 						bluetooth_a2dp_speaker = 0
@@ -58,7 +58,7 @@ supDomain: Calibration
 						aux_line = 0
 						speaker_safe = 0
 
-			component: /Route/nuc/capture/media/stream_capture
+			component: /Route/skl/capture/media/stream_capture
 				component: config
 					require_preenable = 0
 					require_postdisable = 0
@@ -112,120 +112,6 @@ supDomain: Calibration
 						spdif = 0
 						bluetooth_a2dp = 0
 						loopback = 0
-
-			component: /Route/nuc/playback/hdmi/stream_playback
-				component: config
-					require_preenable = 0
-					require_postdisable = 0
-					silence_prolog_ms = 0
-					channels = 2
-					channels_policy = copy,copy
-					rate = 48000
-					format = Pcm16Bit
-					period_size = 4096
-					period_count = 4
-					start_threshold = 4095
-					stop_threshold = 16384
-					silence_threshold = 0
-					avail_min = 4096
-					dynamic_channel_map_control =
-					dynamic_sample_rate_control =
-					dynamic_format_control =
-					component: supported_flags/output_flags
-						direct = 0
-						primary = 1
-						fast = 0
-						deep_buffer = 0
-						compress_offload = 0
-						non_blocking = 0
-						hw_av_sync = 0
-						tts = 0
-						raw = 0
-						sync = 0
-						iec958_nonaudio = 0
-					supported_use_cases = 0
-					effects_supported =
-					component: supported_output_devices/mask
-						earpiece = 0
-						speaker = 1
-						wired_headset = 0
-						wired_headphone = 0
-						bluetooth_sco = 0
-						bluetooth_sco_headset = 0
-						bluetooth_sco_carkit = 0
-						bluetooth_a2dp = 0
-						bluetooth_a2dp_headphones = 0
-						bluetooth_a2dp_speaker = 0
-						hdmi = 1
-						angl_dock_headset = 0
-						dgtl_dock_headset = 0
-						usb_accessory = 0
-						usb_device = 0
-						remote_submix = 0
-						telephony_tx = 0
-						line = 0
-						hdmi_arc = 0
-						spdif = 0
-						fm = 0
-						aux_line = 0
-						speaker_safe = 0
-
-			component: /Route/nuc/playback/hdmi_multi/stream_playback
-				component: config
-					require_preenable = 0
-					require_postdisable = 0
-					silence_prolog_ms = 0
-					channels = 0
-					channels_policy =
-					rate = 48000
-					format = Pcm16Bit
-					period_size = 4096
-					period_count = 4
-					start_threshold = 4095
-					stop_threshold = 16384
-					silence_threshold = 0
-					avail_min = 4096
-					dynamic_channel_map_control = Playback Channel Map
-					dynamic_sample_rate_control =
-					dynamic_format_control =
-					component: supported_flags/output_flags
-						direct = 1
-						primary = 0
-						fast = 0
-						deep_buffer = 0
-						compress_offload = 0
-						non_blocking = 0
-						hw_av_sync = 0
-						tts = 0
-						raw = 0
-						sync = 0
-						iec958_nonaudio = 1
-					supported_use_cases = 0
-					effects_supported =
-					component: supported_output_devices/mask
-						earpiece = 0
-						speaker = 0
-						wired_headset = 0
-						wired_headphone = 0
-						bluetooth_sco = 0
-						bluetooth_sco_headset = 0
-						bluetooth_sco_carkit = 0
-						bluetooth_a2dp = 0
-						bluetooth_a2dp_headphones = 0
-						bluetooth_a2dp_speaker = 0
-						hdmi = 1
-						angl_dock_headset = 0
-						dgtl_dock_headset = 0
-						usb_accessory = 0
-						usb_device = 0
-						remote_submix = 0
-						telephony_tx = 0
-						line = 0
-						hdmi_arc = 0
-						spdif = 0
-						fm = 0
-						aux_line = 0
-						speaker_safe = 0
 
 
 

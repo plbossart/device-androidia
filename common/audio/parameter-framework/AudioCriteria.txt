@@ -1,7 +1,7 @@
 ExclusiveCriterion  Mode                   :  Normal
 InclusiveCriterion  RoutageState           :  Configure   Flow          Path
-InclusiveCriterion  OpenedPlaybackRoutes   :  Media       Hdmi
+InclusiveCriterion  OpenedPlaybackRoutes   :  Media
 InclusiveCriterion  OpenedCaptureRoutes    :  Media
-InclusiveCriterion  SelectedInputDevices   :  Headset
-InclusiveCriterion  SelectedOutputDevices  :  Headphones  Headset       Line      Ihf      AuxDigital 
+InclusiveCriterion  SelectedInputDevices   :  Headset	  MainMic
+InclusiveCriterion  SelectedOutputDevices  :  Headphones  Headset Speaker
 ExclusiveCriterion  ScreenState            :  Off         On
