@@ -16,6 +16,7 @@ LOCAL_REQUIRED_MODULES := \
     nuc_audio_policy.conf \
     nuc_route_criteria.conf \
     AudioConfigurableDomains.xml \
+    AudioConfigurableDomains-AR.xml \
     RouteConfigurableDomains.xml
 
 include $(BUILD_PHONY_PACKAGE)
@@ -120,6 +121,78 @@ include $(BUILD_PREBUILT)
 ###########################################
 
 ###########################################
+# Audio PFW Package for audio route
+###########################################
+include $(CLEAR_VARS)
+LOCAL_MODULE := AudioConfigurableDomains-AR.xml
+LOCAL_MODULES_TAGS := optional
+LOCAL_ADDITIONAL_DEPENDENCIES := \
+    AudioParameterFramework-AR.xml \
+    AudioClass-AR.xml \
+    ConexantCX20724Subsystem-AR.xml \
+    HdmiSubsystem.xml \
+    mixer_paths.xml
+
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_RELATIVE_PATH := parameter-framework/Settings/Audio
+LOCAL_REQUIRED_MODULES := \
+     libtinyalsa-subsystem \
+     libaudioroute-subsystem
+
+PFW_TOPLEVEL_FILE := $(TARGET_OUT_ETC)/parameter-framework/AudioParameterFramework-AR.xml
+PFW_CRITERIA_FILE := $(LOCAL_PATH)/parameter-framework/AudioCriteria.txt
+#PFW_TUNING_FILE   := $(LOCAL_PATH)/$(LOCAL_MODULE_RELATIVE_PATH)/AudioConfigurableDomains-Tuning.xml
+
+PFW_EDD_FILES := \
+    $(LOCAL_PATH)/$(LOCAL_MODULE_RELATIVE_PATH)/routing_cx20724-ar.pfw \
+    $(LOCAL_PATH)/$(LOCAL_MODULE_RELATIVE_PATH)/routing_hdmi.pfw
+
+include $(BUILD_PFW_SETTINGS)
+
+###########################################
+# Audio PFW top file
+###########################################
+include $(CLEAR_VARS)
+LOCAL_MODULE := AudioParameterFramework-AR.xml
+LOCAL_MODULE_OWNER := intel
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_RELATIVE_PATH := parameter-framework
+LOCAL_SRC_FILES := parameter-framework/$(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+###########################################
+
+###########################################
+# Audio PFW Structure files
+###########################################
+include $(CLEAR_VARS)
+LOCAL_MODULE := AudioClass-AR.xml
+LOCAL_MODULE_OWNER := intel
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_RELATIVE_PATH := parameter-framework/Structure/Audio
+LOCAL_SRC_FILES := $(LOCAL_MODULE_RELATIVE_PATH)/$(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := ConexantCX20724Subsystem-AR.xml
+LOCAL_MODULE_OWNER := intel
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_RELATIVE_PATH := parameter-framework/Structure/Audio
+LOCAL_SRC_FILES := $(LOCAL_MODULE_RELATIVE_PATH)/$(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := mixer_paths.xml
+LOCAL_MODULE_OWNER := intel
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_ETC)
+LOCAL_SRC_FILES := parameter-framework/Settings/Audio/$(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+###########################################
 # Route PFW Package
 ###########################################
 include $(CLEAR_VARS)
@@ -141,6 +214,7 @@ PFW_EDD_FILES := \
     $(LOCAL_PATH)/$(LOCAL_MODULE_RELATIVE_PATH)/route-configuration.pfw
 
 include $(BUILD_PFW_SETTINGS)
+
 
 ###########################################
 # Route PFW top file

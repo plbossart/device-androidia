@@ -1,0 +1,77 @@
+# this file sets up switches and mixer controls and does more than basic routing
+# the usual AudioConfigurable-tuning.xml is not used since the mixers are too
+# basic and can be directly integrated in the .pfw file
+
+domainGroup: Routing.cx20724
+
+	#########################################
+	############### Configure ###############
+	#########################################
+
+	domainGroup: Configure
+		RoutageState Includes Configure
+
+		domainGroup: Playback
+			domainGroup: Media
+				confType: Bind
+					ANY
+						OpenedPlaybackRoutes Includes Media
+
+				domain: Headset
+					conf: Bind
+						ALL
+							ANY
+								SelectedOutputDevices Includes Headset
+								SelectedOutputDevices Includes Headphones
+							SelectedOutputDevices Excludes Ihf
+
+						/Audio/cx20724/output/headphone/path = 1
+	
+					conf: Unbind
+						/Audio/cx20724/output/headphone/path = 0
+				domain: Speaker
+					conf: Bind
+						ALL
+							SelectedOutputDevices Includes Ihf
+							SelectedOutputDevices Excludes Headset
+							SelectedOutputDevices Excludes Headphones
+						/Audio/cx20724/output/speaker/path = 1
+						
+					conf: Unbind
+						/Audio/cx20724/output/speaker/path = 0	
+
+				domain: All
+					conf: Bind
+						ALL
+							ANY
+								SelectedOutputDevices Includes Headset
+								SelectedOutputDevices Includes Headphones
+								SelectedOutputDevices Includes Ihf
+						/Audio/cx20724/output/speaker-headphone/path = 1
+							
+					conf: Unbind
+						/Audio/cx20724/output/speaker-headphone/path = 1
+
+		domainGroup: Capture
+			domainGroup: Media
+				confType: Bind
+					ANY
+						OpenedCaptureRoutes Includes Media
+
+				domain: Headset
+					conf: Bind
+						SelectedInputDevices Includes Headset
+
+						/Audio/cx20724/input/headset/path = 1
+
+					conf: Unbind
+						/Audio/cx20724/input/headset/path = 0
+
+				domain: Main
+					conf: Bind
+						SelectedInputDevices Includes Main
+
+						/Audio/cx20724/input/mic/path = 1
+
+					conf: Unbind
+						/Audio/cx20724/input/mic/path = 0

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Subsystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xsi:noNamespaceSchemaLocation="../../Schemas/Subsystem.xsd"
+    Name="cx20724" Type="AUDIOROUTE"
+    Mapping="Card:0,Path:/vendor/etc/mixer_paths.xml">
+
+    <!--
+	The structure of the audio codec is as follows
+    /Audio/cx20724/output/
+                          switch
+                          volume
+                          headset/
+                                  switch
+                                  volume
+                          speaker/
+                                  switch
+                                  volume
+    /Audio/cx20724/input/
+                         switch
+                         volume
+
+    The component names can be arbitrary, they will be mapped in the tuning
+    files
+    
+    The order of the declarations does matter, the types need to be defined
+    before being instanciated and the file is organized from leaf nodes
+    to root. In this example, there are separate volumes for speaker and
+    headset but they use a common master volume. For the time being the
+    "Internal Mic Boost Volume" and "Mic Boost Volume" are not used
+    
+    The syntax Amend:string along with the %n notation is a replace operation
+    to avoid duplication
+    The ArrayLength is linked to the number of elements of the control,
+    it can be omitted when there is a single value. The Size is an internal
+    parameter framework representation but needs to be able to store the
+    largest control value.
+    -->
+    
+    <ComponentLibrary>
+        
+        <ComponentType Name="ARPath">
+            <BooleanParameter Name="path" Mapping="AR:'%1'"/>
+        </ComponentType>
+	<!-- Outputs -->
+        <ComponentType Name="OutputPaths">
+            <Component Name="headphone" Type="ARPath" Mapping="Amend1:headphone"/>
+	    <Component Name="speaker"   Type="ARPath" Mapping="Amend1:speaker"/>
+	    <Component Name="speaker-headphone"   Type="ARPath" Mapping="Amend1:headphone"/>
+        </ComponentType>
+        <!-- Inputs -->
+	<ComponentType Name="InputPaths">
+	    <Component Name="mic" Type="ARPath" Mapping="Amend1:mic"/>
+	    <Component Name="headset" Type="ARPath" Mapping="Amend1:headset"/>
+        </ComponentType>
+    </ComponentLibrary>
+
+    <InstanceDefinition>
+        <Component Name="output" Type="OutputPaths"/>
+        <Component Name="input" Type="InputPaths"/>
+    </InstanceDefinition>
+</Subsystem>
