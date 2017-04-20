@@ -329,14 +329,17 @@ PRODUCT_PACKAGES_DEBUG += \
          tinyplay \
          tinycap
 
+ifneq ($(USE_STUB_AUDIO_HAL), 1)
+PRODUCT_PACKAGES += \
+    audio.primary.android_ia
+endif
+
 # Extended Audio HALs
 PRODUCT_PACKAGES += \
-    audio.primary.android_ia \
     audio.r_submix.default \
     audio.usb.default \
     audio_policy.default.so \
     audio_configuration_files
-
 ##############################################################
 # Source: device/intel/mixins/groups/wlan/iwlwifi/product.mk
 ##############################################################
