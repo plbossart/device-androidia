@@ -16,6 +16,8 @@ AUDIO_HARDWARE := default
 #AUDIO_HARDWARE := PCH-ALC283
 #AUDIO_HARDWARE := nuc-skull-canyon
 
+endif
+
 ###########################################
 # Audio stack Packages
 ###########################################
